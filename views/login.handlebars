@@ -1,5 +1,5 @@
 <div class="card customcard backgroundgreen" style="width:100%">
-    <div class="card-title position-absolute backgroundbrown textgreen top-0 start-0" style="width: 100%">Edit Post
+    <div class="card-title position-absolute backgroundbrown textgreen top-0 start-0" style="width: 100%">Login
     </div>
     <form action="#" id="login">
         <div class="mb-3 backgroundgreen center margintop25" style="width: 95%">
@@ -8,11 +8,13 @@
         </div>
         <div class="mb-3 backgroundgreen center" style="width: 95%">
             <label for="passwordInput" class="form-label backgroundgreen">Password</label>
-            <input type="text" class="form-control" id="passwordInput" placeholder="Another input placeholder">
+            <input type="password" class="form-control" id="passwordInput" placeholder="Another input placeholder">
         </div>
-            <button type="submit" class="btn btn-secondary center" style="width: 95%">Login!</button>
+        <button type="submit" class="btn btn-secondary center" style="width: 95%">Login!</button>
     </form>
-    <p>Sign up instead</p>
+    <span id="error_message" class="textred"></span>
+    <p></p>
+    <a href="./signup">Sign up instead</a>
 </div>
 
 <script src="/js/login.js"></script>

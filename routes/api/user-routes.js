@@ -59,6 +59,13 @@ router.post('/logout', (req, res) => {
 });
 
 router.post('/new', async (req, res) => {
+  const userDataCheck = await user.findOne({ where: { email: req.body.email } });
+  if (userDataCheck) {
+    res
+      .status(400)
+      .json({ message: 'Account already exists. Please create a new account.'});
+    return;
+  } else {
 
   const { name: name, email, password } = req.body;
   // If all the required properties are present
@@ -88,6 +95,7 @@ router.post('/new', async (req, res) => {
   } else {
     //res.status(500).json('Error in posting review');
   }
+}
 });
 
 module.exports = router;
