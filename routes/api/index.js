@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const path = require('path');
 
-//need to update
+const userRoutes = require('./user-routes');
+
+
+router.use('/user', userRoutes);
 
 module.exports = router;

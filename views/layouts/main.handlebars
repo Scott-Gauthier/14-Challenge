@@ -26,10 +26,12 @@
           <div class="navbar-nav">
             <a class="nav-link textgreen whitehover" href="./">Home</a>
             <a class="nav-link textgreen whitehover" href="#">Dashboard</a>
-            {{#if logged_in}}
+            {{#if logged_in}} {{else}}
             <a class="nav-link textgreen whitehover" href="./login">Login</a>
-            {{else}}
+            {{/if}}
+            {{#if logged_in}}
             <a class="nav-link textgreen whitehover" href="#">Logout</a>
+            {{else}}
             {{/if}}
           </div>
         </div>
