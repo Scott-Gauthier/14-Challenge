@@ -31,6 +31,17 @@
     width: 90%;
     align-self: center;
 }
+.customcardnoborder {
+    border-width: 0;
+    margin: 10px 0px 20px 0;
+    align-self: center;
+    background-color: #D9EAD3;  
+    position: absolute;
+    bottom: 0px;
+}
+.minbutton {
+    min-width: 125px;
+}
 .center {
     align-self: center; 
 }
