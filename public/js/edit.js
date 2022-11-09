@@ -26,7 +26,6 @@ const editFormHandler = async (event) => {
         //body: JSON.stringify({ title, content }),
         headers: { 'Content-Type': 'application/json' },
       })
-    console.log('Direct hit!!!')
       document.location.replace('/dashboard');
     }
 
