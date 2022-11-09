@@ -3,11 +3,12 @@
     <form action="#" id="signup">
         <div class="mb-3 backgroundgreen center margintop25" style="width: 95%">
             <label for="usernameInput" class="form-label backgroundgreen">Username</label>
-            <input type="text" class="form-control" id="usernameInput" placeholder="john@domain.com">
+            <input type="text" class="form-control" id="usernameInput" placeholder="john@domain.com" required>
         </div>
         <div class="mb-3 backgroundgreen center" style="width: 95%">
             <label for="passwordInput" class="form-label backgroundgreen">Password</label>
-            <input type="password" class="form-control" id="passwordInput" placeholder="input password">
+            <input type="password" class="form-control" id="passwordInput" placeholder="input password" required>
+            <span id="togglePassword" class="fa fa-eye-slash"></span>
         </div>
         <button type="submit" class="btn btn-secondary center" style="width: 95%">Sign up</button>
     </form>

@@ -8,7 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <!-- link rel="stylesheet" href="/css/bootstrap.min.css"/ -->
-  <link rel="stylesheet" href="./css/style.css">
+  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/style.css">
   <title>Tech Blog</title>
 </head>
 
@@ -24,13 +25,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link textgreen whitehover" href="./">Home</a>
-            <a class="nav-link textgreen whitehover" href="./profile">Dashboard</a>
+            <a class="nav-link textgreen whitehover" href="/">Home</a>
+            <a class="nav-link textgreen whitehover" href="/dashboard">Dashboard</a>
             {{#if logged_in}} {{else}}
-            <a class="nav-link textgreen whitehover" href="./login">Login</a>
+            <a class="nav-link textgreen whitehover" href="/login">Login</a>
             {{/if}}
             {{#if logged_in}}
-            <a class="nav-link textgreen whitehover" href="./logout">Logout</a>
+            <a class="nav-link textgreen whitehover" href="/logout" id="logout">Logout</a>
             {{else}}
             {{/if}}
           </div>
@@ -42,6 +43,7 @@
 
     {{{ body }}}
     {{#if logged_in}}
+    <script src="/js/logout.js"></script>
     {{/if}}
 
   </Main>

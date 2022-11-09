@@ -1,7 +1,8 @@
 {{#each contentData as |content| }}
-<div class="card customcard" style="width:100%" id="id-{{{content.id}}}">
+<a href="./edit/{{{content.id}}}"><div class="card customcard" style="width:100%" >
     <div class="card-title position-absolute backgroundbrown textgreen top-0 start-0" style="width:50%">{{{content.title}}}</div>
     <div class="card-title position-absolute backgroundbrown textgreen top-0 end-0 text-end" style="width:50%">Posted by {{{content.name}}} on {{{content.date_created}}}</div>
     <div class="card-body text-start backgroundgreen textbrown margintop10" style="width:100%">{{{content.content}}}</div>
 </div>
+</a>
 {{/each}}

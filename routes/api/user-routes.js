@@ -66,23 +66,23 @@ router.post('/new', async (req, res) => {
       .json({ message: 'Account already exists. Please create a new account.'});
     return;
   } else {
-
-  const { name: name, email, password } = req.body;
+    console.log(req.body)
+  const {email, password } = req.body;
   // If all the required properties are present
-  if (name && email && password) {
+  if (email && password) {
     // Variable for the object we will save
     const newUser = {
-      name,
       email,
       password,
-      //user_id: 1, //need to get from SQL database
     };
-  
+    console.log(newUser)  
     user.create(newUser)
     .then((newUser) => {
+      console.log(newUser);
       res.json(newUser);
     })
     .catch((err) => {
+      console.log(err);
       res.json(err);
     })
     ;
@@ -90,7 +90,7 @@ router.post('/new', async (req, res) => {
       status: 'success',
       body: newUser,
     };
-
+    console.log(response)
     //res.status(201).json(response);
   } else {
     //res.status(500).json('Error in posting review');
@@ -99,4 +99,3 @@ router.post('/new', async (req, res) => {
 });
 
 module.exports = router;
-
