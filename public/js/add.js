@@ -1,5 +1,5 @@
 const createButtonHandler = async (event) => {
-    //event.preventDefault();
+    event.preventDefault();
     // Collect values from the login form
     const title = document.getElementById('titleInput').value.trim();
     const content = document.getElementById('contentInput').value.trim();
@@ -20,10 +20,11 @@ const createButtonHandler = async (event) => {
         console.log(response);
         if (response.status == 400) {
             document.getElementById("error_message").textContent = `Post title must be unique.`
+
         } else {
             console.log(`Made it here....`)
             document.location.replace('/dashboard')
         }
     };
 };
-document.getElementById('create').addEventListener('click', createButtonHandler);
+document.getElementById('create').addEventListener('submit', createButtonHandler);

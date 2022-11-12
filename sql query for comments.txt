@@ -1,0 +1,18 @@
+use techblog_db;
+
+SELECT 
+	 title
+    ,content
+    ,a.email
+    ,content.date_created
+    ,comment
+	,b.email
+    ,comment.date_created
+FROM techblog_db.content
+join user as a
+on content.user_id = a.id
+join comment
+on content_id = content.id
+join user as b
+on comment.user_id = b.id
+order by comment.id

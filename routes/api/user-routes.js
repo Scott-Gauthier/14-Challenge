@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { user } = require('../../models');
+const { user, content, comment } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
@@ -98,4 +98,26 @@ router.post('/new', async (req, res) => {
 }
 });
 
+router.get('/:id', async (req, res) => {
+  const id = req.params.id.toLowerCase();
+  let contentDataRaw = await content.findAll({
+    where: {
+      id: id,
+    },
+    include: [{ model: user}]
+  });
+
+contentDataRaw = contentDataRaw.map((content) => content.get({ plain: true}))
+
+  let commentDataRaw = await comment.findAll({
+    where: {
+      content_id: id,
+    },
+    include: [{ model: user}]
+  })
+commentDataRaw = commentDataRaw.map((comment) => comment.get({ plain: true}))
+
+  res.status(200).json({content: contentDataRaw, comment: commentDataRaw})
+
+});
 module.exports = router;

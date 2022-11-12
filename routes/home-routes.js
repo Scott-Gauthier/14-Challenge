@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { content, user } = require('../models');
+const { content, user, comment } = require('../models');
 var editID = '';
 //need to update
 router.get('/', async (req, res) => {
@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
 router.get('/login', (req, res) => {
   res.render('login', { logged_in: req.session.logged_in });
 });
+
 router.get('/logout', (req, res) => {
   res.render('homepage', { logged_in: req.session.logged_in });
 });
@@ -39,7 +40,7 @@ router.post('/create', withAuth, async (req, res) => {
     } catch (err) {
       res.status(400).json(err);
     }
-
+  res.render('dashboard', { logged_in: req.session.logged_in });
 });
 router.get('/dashboard', withAuth, async (req, res) => {
 
@@ -107,6 +108,24 @@ router.delete('/edit/id', async (req, res) => {
   });
 
   return res.json(data);
+});
+
+router.post('/comment_create', async (req, res) => {
+  console.log(req.body);
+  try {
+    const commentData = await comment.create(
+      {
+        comment: req.body.comment,
+        content_id: req.body.id,
+        user_id: req.session.user_id,
+      }
+    );
+    console.log(commentData);
+    res.json(commentData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+res.render('homepage', { logged_in: req.session.logged_in });
 });
 
 module.exports = router;

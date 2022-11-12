@@ -8,6 +8,6 @@ const contentData = [
 
 ];
 
-const seedBooks = () => content.bulkCreate(contentData);
+const seedContent = () => content.bulkCreate(contentData);
 
-module.exports = seedBooks;
+module.exports = seedContent;

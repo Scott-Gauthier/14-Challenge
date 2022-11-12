@@ -36,7 +36,7 @@
     margin: 10px 0px 20px 0;
     align-self: center;
     background-color: #D9EAD3;  
-    position: absolute;
+    position: relative;
     bottom: 0px;
 }
 .minbutton {

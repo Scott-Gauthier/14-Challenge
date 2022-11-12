@@ -1,0 +1,41 @@
+{{#each contentData as |content| }}
+<div class="card customcard" style="width:100%">
+  <div class="card-title position-absolute backgroundbrown textgreen top-0 start-0" style="width:50%">
+    {{{content.title}}}</div>
+  <div class="card-title position-absolute backgroundbrown textgreen top-0 end-0 text-end" style="width:50%">Posted by
+    {{{content.name}}} on {{{content.date_created}}}</div>
+  <div class="card-body text-start backgroundgreen textbrown margintop10" style="width:100%">{{{content.content}}}
+  </div>
+</div>
+{{/each}}
+{{#each commentData as |comment| }}
+<div class="card customcard" style="width:100%">
+  <div class="card-title position-absolute backgroundbrown textgreen top-0 start-0" style="width:50%">
+    <p></p>
+  </div>
+  <div class="card-title position-absolute backgroundbrown textgreen top-0 end-0 text-end" style="width:50%">
+    <p></p>
+  </div>
+  <div class="card-body text-start backgroundgreen textbrown margintop10" style="width:100%">{{{comment.comment}}}
+    <p></p>- {{{comment.name}}} on {{{comment.date_created}}}
+  </div>
+</div>
+{{/each}}
+<div class="card customcard" style="width:100%">
+  <div class="card-title position-absolute backgroundbrown textgreen top-0 start-0" style="width:50%">
+    <p></p>
+  </div>
+  <div class="card-title position-absolute backgroundbrown textgreen top-0 end-0 text-end" style="width:50%">
+    <p></p>
+  </div>
+  <div class="card-body text-start backgroundgreen textbrown margintop10" style="width:100%">
+    Comment
+  </div>
+  <form action="#" id="comment" class="backgroundgreen">
+    <input type="text" class="form-control" id="commentInput" style="width: 95%" placeholder="Add comment" required>
+    <p></p>
+    <button type="submit" class="btn btn-secondary center" style="width: 95%" id="comment">Submit</button>
+    <p></p>
+</div>
+
+<script src="/js/comment.js"></script>
