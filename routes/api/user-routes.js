@@ -99,25 +99,18 @@ router.post('/new', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+  //route is for test purposes.
   const id = req.params.id.toLowerCase();
   let contentDataRaw = await content.findAll({
     where: {
       id: id,
     },
-    include: [{ model: user}]
+    include: [{ model: user},{ model: comment}]
   });
 
 contentDataRaw = contentDataRaw.map((content) => content.get({ plain: true}))
 
-  let commentDataRaw = await comment.findAll({
-    where: {
-      content_id: id,
-    },
-    include: [{ model: user}]
-  })
-commentDataRaw = commentDataRaw.map((comment) => comment.get({ plain: true}))
-
-  res.status(200).json({content: contentDataRaw, comment: commentDataRaw})
+  res.status(200).json({content: contentDataRaw})
 
 });
 module.exports = router;
