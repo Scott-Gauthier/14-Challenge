@@ -5,13 +5,12 @@ var editID = '';
 //need to update
 router.get('/', async (req, res) => {
 
-  const contentDataRaw = await content.findAll({
-    include: [{ model: user }]
-  }).catch((err) => {
-    res.json(err);
+  let contentDataRaw = await content.findAll({
+    include: [{ model: user.scope('password') }]
   });
-  const contentData = contentDataRaw.map((data) => ({ id: data.id, title: data.title, content: data.content, date_created: data.date_created.toLocaleDateString(undefined, { year: 'numeric', month: '2-digit', day: '2-digit', weekday: "long", hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit' }), email: data.user.email, name: data.user.email.substring(0, data.user.email.indexOf('@')) }));
-  res.render('homepage', { logged_in: req.session.logged_in, contentData });
+
+  contentDataRaw = contentDataRaw.map((content) => content.get({ plain: true}))
+  res.render('homepage', { logged_in: req.session.logged_in, contentDataRaw });
 });
 
 router.get('/login', (req, res) => {

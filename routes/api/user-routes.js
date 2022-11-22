@@ -105,10 +105,11 @@ router.get('/:id', async (req, res) => {
     where: {
       id: id,
     },
-    include: [{ model: user},{ model: comment}]
+    include: [{ model: user.scope('password')},{ model: comment, include: [{ model: user.scope('password')}]} ],
+
   });
 
-contentDataRaw = contentDataRaw.map((content) => content.get({ plain: true}))
+contentDataRaw = contentDataRaw.map((content) => content.get({ plain: true})) //
 
   res.status(200).json({content: contentDataRaw})
 
